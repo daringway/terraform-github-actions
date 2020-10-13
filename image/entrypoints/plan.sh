@@ -28,6 +28,9 @@ set -e
 cp "$PLAN_DIR/error.txt" "$ARTIFACT_DIR"
 cp "$PLAN_DIR/plan.txt" "$ARTIFACT_DIR"
 
+echo XXX
+ls $ARTIFACT_DIR
+
 cat "$PLAN_DIR/error.txt"
 
 if [[ "$GITHUB_EVENT_NAME" == "pull_request" || "$GITHUB_EVENT_NAME" == "issue_comment" || "$GITHUB_EVENT_NAME" == "pull_request_review_comment" ]]; then
