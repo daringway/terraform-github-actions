@@ -49,7 +49,7 @@ function detect-tfmask() {
 function setup() {
   export TF_DATA_DIR="$HOME/.dflook-terraform-data-dir"
   export TF_PLUGIN_CACHE_DIR="$HOME/.terraform.d/plugin-cache"
-  ARTIFACT_DIR=${HOME}/${GITHUB_RUN_ID}-${GITHUB_RUN_NUMBER}
+  export ARTIFACT_DIR=${HOME}/${GITHUB_RUN_ID}-${GITHUB_RUN_NUMBER}
 
   unset TF_WORKSPACE
 
@@ -167,5 +167,5 @@ function random_string() {
 }
 
 function save_artifact {
-  tee $ARTIFACT_DIR/$1
+  tee "$ARTIFACT_DIR/$1"
 }
