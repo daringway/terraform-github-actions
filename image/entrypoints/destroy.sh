@@ -8,4 +8,4 @@ init-backend
 select-workspace
 set-plan-args
 
-(cd "$INPUT_PATH" && terraform destroy -input=false -auto-approve -lock-timeout=300s $PLAN_ARGS)
+(cd "$INPUT_PATH" && terraform destroy -input=false -auto-approve -lock-timeout=300s $PLAN_ARGS) | save_artifact destroy.txt

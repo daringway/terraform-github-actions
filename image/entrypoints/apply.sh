@@ -41,8 +41,8 @@ function plan() {
         | sed '1,/---/d' \
             >"$PLAN_DIR/plan.txt"
 
-    cp $PLAN_DIR/error.txt $ARTIFACT_DIR
-    cp $PLAN_DIR/plan.txt $ARTIFACT_DIR
+    cp $PLAN_DIR/error.txt $ARTIFACT_DIR/plan-error.txt
+    cp $PLAN_DIR/plan.txt $ARTIFACT_DIR/plan-output.txt
 
     PLAN_EXIT=${PIPESTATUS[0]}
     set -e

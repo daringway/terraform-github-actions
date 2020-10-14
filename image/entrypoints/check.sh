@@ -11,7 +11,7 @@ output
 
 set +e
 (cd $INPUT_PATH && terraform plan -input=false -detailed-exitcode -lock-timeout=300s $PLAN_ARGS) \
-    | $TFMASK
+    | $TFMASK | save_artifact plan-output.txt
 
 readonly TF_EXIT=${PIPESTATUS[0]}
 set -e

@@ -26,7 +26,7 @@ readonly TF_EXIT=${PIPESTATUS[0]}
 set -e
 
 cp "$PLAN_DIR/error.txt" "$ARTIFACT_DIR/plan-error.txt"
-cp "$PLAN_DIR/plan.txt" "$ARTIFACT_DIR/plan-out.txt"
+cp "$PLAN_DIR/plan.txt" "$ARTIFACT_DIR/plan-output.txt"
 
 echo XXX
 ls $ARTIFACT_DIR
