@@ -13,7 +13,7 @@ COPY tools/workspace_exists.py /usr/local/bin/workspace_exists
 
 RUN curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip" \
   && unzip awscliv2.zip \
-  && sudo ./aws/install\
+  && ./aws/install\
   && pip install ec2instanceconnectcli
 
 LABEL org.opencontainers.image.title="GitHub actions for terraform"
