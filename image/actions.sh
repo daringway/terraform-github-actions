@@ -50,7 +50,8 @@ function setupProxy() {
   if [ "${AWS_PROXY_NAME}" != "" ]
   then
     ID=$(aws ec2 describe-instances   --query "Reservations[*].Instances[*].{Id:InstanceId}"    --filters "Name=instance-state-name,Values=running" "Name=tag:Name,Values=${AWS_PROXY_NAME}" --output text  | head -1)
-    mssh -D 1337 -N ${D} &
+    echo "connect to ssh proxy $AWS_PROXY_NAME $ID"
+    mssh -D 1337 -N ${ID} &
   fi
 }
 
