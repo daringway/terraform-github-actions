@@ -37,11 +37,6 @@ RUN curl -fsL https://github.com/warrensbox/terraform-switcher/releases/download
  && tfswitch $DEFAULT_TF_VERSION
 RUN mkdir -p $TF_PLUGIN_CACHE_DIR
 
-RUN curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip" \
-  && unzip awscliv2.zip \
-  && sudo ./aws/install\
-  && pip install ec2instanceconnectcli
-
 COPY --from=tfmask /go/tfmask/release/tfmask /usr/local/bin/tfmask
 ENV TFMASK_RESOURCES_REGEX="(?i)^(random_id|kubernetes_secret|acme_certificate).*$"
 
