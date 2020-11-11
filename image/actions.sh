@@ -46,6 +46,14 @@ function detect-tfmask() {
   export TFMASK
 }
 
+function setupProxy() {
+  if [ "${AWS_PROXY_NAME}" != "" ]
+  then
+    ID=$(aws ec2 describe-instances   --query "Reservations[*].Instances[*].{Id:InstanceId}"    --filters "Name=instance-state-name,Values=running" "Name=tag:Name,Values=${AWS_PROXY_NAME}" --output text  | head -1)
+    mssh -D 1337 -N ${D} &
+  fi
+}
+
 function setup() {
   export TF_DATA_DIR="$HOME/.dflook-terraform-data-dir"
   export TF_PLUGIN_CACHE_DIR="$HOME/.terraform.d/plugin-cache"
@@ -65,6 +73,7 @@ function setup() {
 
   detect-terraform-version
   detect-tfmask
+  setupProxy
 }
 
 function relative_to() {
