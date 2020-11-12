@@ -34,6 +34,10 @@ inputs:
     description: Add the plan to a GitHub PR
     required: false
     default: true
+  aws_proxy_name:
+    description: "AWS EC2 host name of the ssh proxy using ec2 instance connect"
+    required: false
+    default: ""
 
 outputs:
   changes:
